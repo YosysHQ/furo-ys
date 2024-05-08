@@ -5,15 +5,15 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 module.exports = {
   devtool: "source-map",
   entry: {
-    furo: [
-      "./src/furo/assets/scripts/furo.js",
-      "./src/furo/assets/styles/furo.sass",
+    "furo-ys": [
+      "./src/furo_ys/assets/scripts/furo-ys.js",
+      "./src/furo_ys/assets/styles/furo.sass",
     ],
-    "furo-extensions": ["./src/furo/assets/styles/furo-extensions.sass"],
+    "furo-extensions": ["./src/furo_ys/assets/styles/furo-extensions.sass"],
   },
   output: {
     filename: "scripts/[name].js",
-    path: resolve(__dirname, "src/furo/theme/furo/static"),
+    path: resolve(__dirname, "src/furo_ys/theme/furo-ys/static"),
   },
   plugins: [new MiniCssExtractPlugin({ filename: "styles/[name].css" })],
   optimization: { minimizer: [`...`, new CssMinimizerPlugin()] },

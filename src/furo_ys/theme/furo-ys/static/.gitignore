@@ -1,7 +1,7 @@
 *.map
 
 # Generated files
-scripts/furo.js*
+scripts/furo-ys.js*
 scripts/furo-extensions.js
-styles/furo.css
+styles/furo-ys.css
 styles/furo-extensions.css

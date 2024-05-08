@@ -7,7 +7,7 @@ node-version = "18.16.0"
 additional-compiled-static-assets = ["styles/furo-extensions.css"]
 
 [project]
-name = "furo"
+name = "furo-ys"
 description = "A clean customisable Sphinx documentation theme."
 dynamic = ["version"]
 readme = "README.md"
@@ -40,8 +40,8 @@ classifiers = [
   "Topic :: Software Development :: Documentation",
 ]
 
-[project.entry-points]
-"sphinx.html_themes" = { furo = "furo" }
+[project.entry-points."sphinx.html_themes"]
+furo-ys = "furo_ys"
 
 [project.urls]
 GitHub = "https://github.com/pradyunsg/furo"

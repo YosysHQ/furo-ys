@@ -14,7 +14,7 @@ sys.path.append(os.path.abspath("./kitchen-sink/demo_py"))
 # -- Project information -----------------------------------------------------
 #
 
-project = "furo"
+project = "furo-ys"
 copyright = "2020, Pradyun Gedam"
 author = "Pradyun Gedam"
 
@@ -30,7 +30,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
     # Our custom extension, only meant for Furo's own documentation.
-    "furo.sphinxext",
+    "furo_ys.sphinxext",
     # External stuff
     "myst_parser",
     "sphinx_copybutton",
@@ -79,8 +79,8 @@ myst_heading_anchors = 3
 # -- Options for HTML output -------------------------------------------------
 #
 
-html_theme = "furo"
-html_title = "Furo"
+html_theme = "furo-ys"
+html_title = "Furo-ys"
 language = "en"
 
 html_static_path = ["_static"]

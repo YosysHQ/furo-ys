@@ -23,7 +23,7 @@ from sphinx.transforms.post_transforms import SphinxPostTransform
 
 from .navigation import get_navigation_tree
 
-THEME_PATH = (Path(__file__).parent / "theme" / "furo").resolve()
+THEME_PATH = (Path(__file__).parent / "theme" / "furo-ys").resolve()
 
 logger = logging.getLogger(__name__)
 
@@ -210,12 +210,12 @@ def _html_page_context(
     if "css_files" in context:
         _add_asset_hashes(
             context["css_files"],
-            ["styles/furo.css", "styles/furo-extensions.css"],
+            ["styles/furo-ys.css", "styles/furo-extensions.css"],
         )
     if "scripts" in context:
         _add_asset_hashes(
             context["scripts"],
-            ["scripts/furo.js"],
+            ["scripts/furo-ys.js"],
         )
 
     _fix_canonical_url(app, pagename, context)
@@ -268,7 +268,7 @@ def _builder_inited(app: sphinx.application.Sphinx) -> None:
         )
 
     # Our JS file needs to be loaded as soon as possible.
-    app.add_js_file("scripts/furo.js", priority=200)
+    app.add_js_file("scripts/furo-ys.js", priority=200)
 
     # 500 is the default priority for extensions, we want this after this.
     app.add_css_file("styles/furo-extensions.css", priority=600)
@@ -308,8 +308,8 @@ def update_known_styles_state(app: sphinx.application.Sphinx) -> None:
 def _get_light_style(app: sphinx.application.Sphinx) -> Style:
     # fmt: off
     # For https://github.com/psf/black/issues/3869
-    return (
-        app  # type: ignore[no-any-return]
+    return ( # type: ignore[no-any-return]
+        app
             .builder
             .highlighter # type: ignore[attr-defined]
             .formatter_args["style"]
@@ -383,7 +383,7 @@ def setup(app: sphinx.application.Sphinx) -> Dict[str, Any]:
         "pygments_dark_style", default="native", rebuild="env", types=[str]
     )
 
-    app.add_html_theme("furo", str(THEME_PATH))
+    app.add_html_theme("furo-ys", str(THEME_PATH))
 
     app.add_post_transform(WrapTableAndMathInAContainerTransform)
 

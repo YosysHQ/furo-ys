@@ -7,7 +7,7 @@ import os
 
 import nox
 
-PACKAGE_NAME = "furo"
+PACKAGE_NAME = "furo-ys"
 nox.options.sessions = ["lint", "test"]
 
 
@@ -126,7 +126,7 @@ def test(session):
 def release(session):
     version_file = f"src/{PACKAGE_NAME}/__init__.py"
     allowed_upstreams = [
-        f"git@github.com:pradyunsg/{PACKAGE_NAME.replace('_', '-')}.git"
+        f"git@github.com:YosysHQ/{PACKAGE_NAME.replace('_', '-')}.git"
     ]
 
     release_version, next_version = get_release_versions(version_file)

@@ -3,7 +3,7 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        exclude: src/furo/theme/.*|docs/(recommendations|reference/admonitions).md
+        exclude: src/furo_ys/theme/.*|docs/(recommendations|reference/admonitions).md
 
   - repo: https://github.com/psf/black
     rev: 24.4.2
