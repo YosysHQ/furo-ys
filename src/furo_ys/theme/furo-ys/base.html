@@ -36,6 +36,8 @@
     {# Favicon #}
     {%- if favicon_url -%}
       <link rel="shortcut icon" href="{{ favicon_url }}"/>
+    {%- elif theme_brand_main_favicon -%}
+      <link rel="shortcut icon" href="{{ pathto('_static/' + theme_brand_main_favicon, 1) }}"/>
     {%- endif -%}
 
     <!-- Generated with Sphinx {{ sphinx_version }} and Furo {{ furo_version }} -->
