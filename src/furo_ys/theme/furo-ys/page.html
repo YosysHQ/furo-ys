@@ -215,10 +215,25 @@
         {% endblock footer %}
       </footer>
     </div>
-    <aside class="toc-drawer{% if furo_hide_toc %} no-toc{% endif %}">
+    <aside class="toc-drawer">
       {% block right_sidebar %}
-      {% if not furo_hide_toc %}
       <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+          YosysHQ
+          </span>
+        </div>
+        <div class="toc-tree-container yosyshq-links" style="padding-bottom: 0">
+          <div class="toc-tree">
+            <ul>
+              <li></li>
+              <li><a class="reference external" href="https://yosyshq.readthedocs.io">Docs</a></li>
+              <li><a class="reference external" href="https://blog.yosyshq.com">Blog</a></li>
+              <li><a class="reference external" href="https://www.yosyshq.com">Website</a></li>
+            </ul>
+          </div>
+        </div>
+        {% if not furo_hide_toc %}
         <div class="toc-title-container">
           <span class="toc-title">
             {{ _("On this page") }}
@@ -229,8 +244,8 @@
             {{ toc }}
           </div>
         </div>
+        {% endif %}
       </div>
-      {% endif %}
       {% endblock right_sidebar %}
     </aside>
   </div>
