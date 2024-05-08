@@ -11,7 +11,9 @@ documentation page.
 Hope your day's going well. :)
 
 -#}
-<a class="sidebar-brand{% if logo %} centered{% endif %}" href="{{ pathto(master_doc) }}">
+<a class="sidebar-brand{% if logo %} centered{% endif %}"
+   title="{% if theme_brand_main_docs %}External link to {{theme_brand_main_docs}}{% endif %}"
+   href="{{ theme_brand_main_docs if theme_brand_main_docs else pathto(master_doc) }}">
   {% block brand_content %}
   {%- if logo_url %}
   <div class="sidebar-logo-container">
