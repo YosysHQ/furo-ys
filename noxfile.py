@@ -7,7 +7,7 @@ import os
 
 import nox
 
-PACKAGE_NAME = "furo-ys"
+PACKAGE_NAME = "furo_ys"
 nox.options.sessions = ["lint", "test"]
 
 
@@ -177,4 +177,4 @@ def release(session):
     session.run("git", "push", "origin", "main", release_version, external=True)
 
     # Upload the distributions.
-    session.run("twine", "upload", *glob.glob("dist/*"))
+    session.run("twine", "upload", "--repository", "testpypi", *glob.glob("dist/*"))
