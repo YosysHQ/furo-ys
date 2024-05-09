@@ -2,9 +2,10 @@
 hide-toc: true
 ---
 
-# Furo
+# Furo-ys
 
-A clean customisable Sphinx documentation theme.
+A clean customisable Sphinx documentation theme, with defaults for YosysHQ
+branding.
 
 ```{include} ../README.md
 :start-after: <!-- start elevator-pitch -->

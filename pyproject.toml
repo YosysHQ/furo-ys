@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 license = { file = "LICENSE" }
-authors = [{ name = "Pradyun Gedam", email = "mail@pradyunsg.me" }]
+authors = [{ name = "YosysHQ GmbH", email = "contact@yosyshq.com" }]
 classifiers = [
   "Framework :: Sphinx",
   "Framework :: Sphinx :: Theme",
@@ -44,7 +44,7 @@ classifiers = [
 furo-ys = "furo_ys"
 
 [project.urls]
-GitHub = "https://github.com/pradyunsg/furo"
+GitHub = "https://github.com/YosysHQ/furo-ys"
 
 [tool.mypy]
 strict = true
