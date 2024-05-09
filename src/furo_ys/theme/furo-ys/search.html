@@ -21,6 +21,17 @@
 </noscript>
 
 <div id="search-results"></div>
+{%- if theme_brand_main_search %}
+<div>
+  Can't find what you're looking for?
+  <form class="search-container" method="get" action="{{ theme_brand_main_search }}" role="search">
+    <input type="hidden" name="q">
+    <input type="hidden" name="check_keywords">
+    <input type="hidden" name="area">
+    <input type="submit" value="Search all YosysHQ docs">
+  </form>
+</div>
+{%- endif %}
 {% endblock %}
 
 {% block scripts -%}
