@@ -156,3 +156,8 @@ if FONT_AWESOME_TESTING:
             "class": "fa-brands fa-solid fa-github fa-2x",
         },
     ]
+
+from sphinx.application import Sphinx
+def setup(app: Sphinx) -> None:
+    from furo_ys.lexers.SBYLexer import SBYLexer
+    app.add_lexer("sby", SBYLexer)

@@ -20,6 +20,7 @@ quickstart
 customisation/index
 reference/index
 recommendations
+pygments
 ```
 
 ```{toctree}
