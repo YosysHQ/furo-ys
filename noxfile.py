@@ -175,4 +175,4 @@ def release(session):
     session.run("git", "push", "origin", "main", release_version, external=True)
 
     # Upload the distributions.
-    session.run("twine", "upload", "--repository", "testpypi", *glob.glob("dist/*"))
+    # session.run("twine", "upload", "--repository", "testpypi", *glob.glob("dist/*"))
