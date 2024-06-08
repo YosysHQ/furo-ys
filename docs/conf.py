@@ -7,6 +7,8 @@ import os
 import sys
 from typing import Any, Dict
 
+from sphinx.application import Sphinx
+
 # add the demo python code to the path, so that it can be used to demonstrate
 # source links
 sys.path.append(os.path.abspath("./kitchen-sink/demo_py"))
@@ -157,7 +159,8 @@ if FONT_AWESOME_TESTING:
         },
     ]
 
-from sphinx.application import Sphinx
+
 def setup(app: Sphinx) -> None:
     from furo_ys.lexers.SBYLexer import SBYLexer
+
     app.add_lexer("sby", SBYLexer)

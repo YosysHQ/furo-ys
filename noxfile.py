@@ -125,9 +125,7 @@ def test(session):
 @nox.session
 def release(session):
     version_file = f"src/{PACKAGE_NAME}/__init__.py"
-    allowed_upstreams = [
-        f"git@github.com:YosysHQ/{PACKAGE_NAME.replace('_', '-')}.git"
-    ]
+    allowed_upstreams = [f"git@github.com:YosysHQ/{PACKAGE_NAME.replace('_', '-')}.git"]
 
     release_version, next_version = get_release_versions(version_file)
 
