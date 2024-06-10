@@ -47,14 +47,14 @@ class MauLexer(RegexLexer):
                 "files_content",
             ),
             (
-                r"(\[)(file)(\s+)(\w+.sv)(\])(\s*)$",
+                r"(\[)(file)(\s+)(\w+.sva?)(\])(\s*)$",
                 bygroups(
                     Punctuation, Name.Class, Whitespace, String, Punctuation, Whitespace
                 ),
                 "sv_content",
             ),
             (
-                r"(\[)(file)(\s+)(\w+.v)(\])(\s*)$",
+                r"(\[)(file)(\s+)(\w+.vh?)(\])(\s*)$",
                 bygroups(
                     Punctuation, Name.Class, Whitespace, String, Punctuation, Whitespace
                 ),
@@ -66,6 +66,13 @@ class MauLexer(RegexLexer):
                     Punctuation, Name.Class, Whitespace, String, Punctuation, Whitespace
                 ),
                 "vhdl_content",
+            ),
+            (
+                r"(\[)(file)(\s+)(\w+)(\])(\s*)$",
+                bygroups(
+                    Punctuation, Name.Class, Whitespace, String, Punctuation, Whitespace
+                ),
+                "file_content",
             ),
             (
                 r"(\[)(" + "|".join(ys_sections) + r")(\])(\s*)$",
@@ -101,6 +108,10 @@ class MauLexer(RegexLexer):
         "vhdl_content": [
             (r"^(?=\s*\[)", Punctuation, "#pop"),
             (r".*\n", using(VhdlLexer)),
+        ],
+        "file_content": [
+            (r"^(?=\s*\[)", Punctuation, "#pop"),
+            (r".*\n", Text),
         ],
         "ys_content": [
             (r"^(?=\s*\[)", Punctuation, "#pop"),

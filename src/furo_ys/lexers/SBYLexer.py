@@ -11,7 +11,6 @@ from pygments.token import (
     Number,
     Operator,
     Punctuation,
-    String,
     Text,
     Whitespace,
 )
@@ -43,38 +42,53 @@ class SBYLexer(MauLexer):
                 ),
             )
         tokens[k].insert(0, include("all"))
+        if k in ["options_content", "generic_content"]:
+            tokens[k].insert(
+                0,
+                (
+                    r"(~?)(\w+)(\s*)(:)(\s*)(\w+)",
+                    bygroups(
+                        Operator, Name.Label, Whitespace, Operator, Whitespace, Keyword
+                    ),
+                ),
+            )
     tokens.update(
         {
             "all": [
                 (
                     r"(\s*)(--pycode-begin--)(\s*)",
-                    bygroups(Whitespace, Number, Whitespace),
+                    bygroups(Whitespace, Name.Decorator, Whitespace),
                     "py-content",
                 ),
                 (
-                    r"(\w+)(\s*)(:)(\s*)",
-                    bygroups(Name.Decorator, Whitespace, Punctuation, Whitespace),
+                    r"(~?)(\w+)(\s*)(:)(\s*)",
+                    bygroups(Operator, Name.Label, Whitespace, Operator, Whitespace),
                 ),
                 (r"(--)(\s*)", bygroups(Operator, Whitespace)),
             ],
             "py-content": [
                 (
                     r"(\s*)(--pycode-end--)(\s*)",
-                    bygroups(Whitespace, Number, Whitespace),
+                    bygroups(Whitespace, Name.Decorator, Whitespace),
                     "#pop",
                 ),
                 (r".*\n", using(PythonLexer)),
             ],
             "tasks": [
+                (
+                    r"(\s*)(--pycode-begin--)(\s*)",
+                    bygroups(Whitespace, Name.Decorator, Whitespace),
+                    "py-content",
+                ),
                 (r"^(?=\s*\[)", Punctuation, "#pop"),
                 (r"#.*", Comment.Single),
                 (r"\bdefault\b", Keyword.Reserved),
-                (r"^(.*)(\s*)(:)", bygroups(Text, Whitespace, Punctuation)),
-                (r"^(\s*)(\w+)", bygroups(Whitespace, Name.Decorator)),
+                (r"^(.*)(\s*)(:)", bygroups(Text, Whitespace, Operator)),
+                (r"^(\s*)(\w+)", bygroups(Whitespace, Name)),
                 (r"\b\w+\b", Name.Tag),
                 (r"\s+", Whitespace),
-                (r":", Punctuation),
-                (r".*\n", String),
+                (r":", Operator),
+                (r".*\n", Number),
             ],
         }
     )
