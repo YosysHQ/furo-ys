@@ -39,3 +39,51 @@ Formatting with pygments
     more.sv
     source.sv
     files.sv
+
+.. code-block:: sby
+
+   [tasks]
+   --pycode-begin--
+   # pycode sections are python formatted
+   for uut in "rotate reflect".split():
+     for op in "SRL SRA SLL SRO SLO ROR ROL FSR FSL".split():
+       output("%s_%s %s %s" % (uut, op, uut, op))
+   --pycode-end--
+
+   ...
+
+   [script]
+   --pycode-begin--
+   for op in "SRL SRA SLL SRO SLO ROR ROL FSR FSL".split():
+     if op in tags:
+       output("read -define %s" % op)
+   --pycode-end--
+   rotate: read -define UUT=shifter_rotate
+   reflect: read -define UUT=shifter_reflect
+   read -sv test.v
+   read -sv shifter_reflect.v
+   read -sv shifter_rotate.v
+   prep -top test
+
+   ...
+
+
+.. code-block:: sby
+
+   [tasks]
+   task1 task_1_or_2 task_1_or_3
+   task2 task_1_or_2
+   task3 task_1_or_3
+
+   task1 task2 : default
+
+.. code-block:: sby
+
+   [options]
+   task_1_or_2:
+   mode bmc
+   depth 100
+
+   task3:
+   mode prove
+   --
