@@ -1,6 +1,6 @@
 """A clean customisable Sphinx documentation theme."""
 
-__version__ = "2024.06.10"
+__version__ = "2024.06.10.dev1"
 
 import hashlib
 import logging
