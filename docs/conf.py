@@ -164,3 +164,7 @@ def setup(app: Sphinx) -> None:
     from furo_ys.lexers.SBYLexer import SBYLexer
 
     app.add_lexer("sby", SBYLexer)
+
+    from furo_ys.lexers.YoscryptLexer import YoscryptLexer
+
+    app.add_lexer("yoscrypt", YoscryptLexer)

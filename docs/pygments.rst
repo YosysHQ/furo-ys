@@ -1,6 +1,13 @@
 Formatting with pygments
 ========================
 
+.. code-block:: yoscrypt
+   :caption: example.ys
+
+   read_verilog fifo.v; :inline comments; prep -top fifo
+   log "strings" # and comments
+   ! echo "abc 123"; echo another # bash gets comments too
+
 .. code-block:: sby
     :caption: example.sby
 
@@ -41,6 +48,7 @@ Formatting with pygments
     files.sv
 
 .. code-block:: sby
+   :caption: pycode in sby
 
    [tasks]
    --pycode-begin--
@@ -69,6 +77,7 @@ Formatting with pygments
 
 
 .. code-block:: sby
+   :caption: tasks/tags in sby
 
    [tasks]
    task1 task_1_or_2 task_1_or_3
@@ -76,8 +85,6 @@ Formatting with pygments
    task3 task_1_or_3
 
    task1 task2 : default
-
-.. code-block:: sby
 
    [options]
    task_1_or_2:
