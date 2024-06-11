@@ -1,6 +1,7 @@
 """Pygments lexer for Yosys script files."""
 
-from pygments.lexer import RegexLexer, bygroups, include
+from pygments.lexer import RegexLexer, bygroups, include, using
+from pygments.lexers.shell import BashLexer
 from pygments.token import (
     Comment,
     Error,
@@ -25,7 +26,9 @@ class YoscryptLexer(RegexLexer):
     tokens = {
         "common": [
             (r"\s+", Whitespace),
-            (r"#.*", Comment.Single),
+            (r"(!)(\s*)(.*\n)", bygroups(Operator, Whitespace, using(BashLexer))),
+            (r"#.*\n", Comment.Single),
+            (r":.*;(?=\s)", Comment.Single),
             (r'"', String, "string"),
             (r"(\d+)(\')([bdho]? ?\w+)", bygroups(Number, Operator, Number)),
             (r"(\d+\.\d+)", Number.Float),
