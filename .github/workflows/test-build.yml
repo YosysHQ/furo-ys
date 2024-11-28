@@ -13,7 +13,7 @@ jobs:
           python-version: "3.x"
 
       - run: pip install build
-      - run: python -m build
+      - run: python -m build && false
 
       - uses: actions/upload-artifact@v4
         with:
