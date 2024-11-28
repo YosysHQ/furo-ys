@@ -1,6 +1,6 @@
 """A clean customisable Sphinx documentation theme."""
 
-__version__ = "2024.06.10.dev1"
+__version__ = "2024.11.29.dev1"
 
 import hashlib
 import logging
@@ -308,7 +308,7 @@ def update_known_styles_state(app: sphinx.application.Sphinx) -> None:
 def _get_light_style(app: sphinx.application.Sphinx) -> Style:
     # fmt: off
     # For https://github.com/psf/black/issues/3869
-    return ( # type: ignore[no-any-return]
+    return (  # type: ignore[no-any-return]
         app
             .builder
             .highlighter # type: ignore[attr-defined]
