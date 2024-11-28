@@ -1,4 +1,4 @@
-<h1 align="center">Furo</h1>
+<h1 align="center">Based on Furo</h1>
 <p align="center">
   A clean customisable <a href="https://www.sphinx-doc.org/">Sphinx</a> documentation theme.
 </p>
