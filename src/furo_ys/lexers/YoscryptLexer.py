@@ -45,7 +45,7 @@ class YoscryptLexer(RegexLexer):
             (r".", Comment),
         ],
         "root": [
-            (r"^([A-Za-z_][A-Za-z_0-9]*:)(\s+)?(.*)$", bygroups(Name, Whitespace, Comment.Single)),
+            (r"^([A-Za-z_][A-Za-z_0-9]*:)([ \t]+)?(.*)$", bygroups(Name, Whitespace, Comment.Single)),
             (r"^(do|while|foreach).*$", Name),
             (r"([A-Za-z_][A-Za-z_0-9]*)", Keyword, "command"),
             (
