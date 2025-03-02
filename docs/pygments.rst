@@ -13,6 +13,13 @@ Formatting with pygments
       some_command [-option]      (-option if ___)
       select */t:SWITCH %x:+[GATE] */t:SWITCH %d
 
+   do
+      opt_things (loops aren't valid code, but we still want to format them)
+   while <changed design>
+
+   foreach module in design
+      log <module-name>
+
 .. code-block:: sby
     :caption: example.sby
 
