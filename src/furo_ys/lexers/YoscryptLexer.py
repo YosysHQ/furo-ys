@@ -28,6 +28,7 @@ class YoscryptLexer(RegexLexer):
             (r"\s+", Whitespace),
             (r"(!)(\s*)(.*\n)", bygroups(Operator, Whitespace, using(BashLexer))),
             (r"#.*\n", Comment.Single),
+            (r"\(.*?\)$", Comment.Single),
             (r":.*;(?=\s)", Comment.Single),
             (r'"', String, "string"),
             (r"(\d+)(\')([bdho]? ?\w+)", bygroups(Number, Operator, Number)),
@@ -44,6 +45,7 @@ class YoscryptLexer(RegexLexer):
             (r".", Comment),
         ],
         "root": [
+            (r"^([A-Za-z_][A-Za-z_0-9]*:)(\s+)?(.*)$", bygroups(Name, Whitespace, Comment.Single)),
             (r"([A-Za-z_][A-Za-z_0-9]*)", Keyword, "command"),
             (
                 r"(-[A-Za-z_][A-Za-z_0-9]*)",

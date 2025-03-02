@@ -8,6 +8,11 @@ Formatting with pygments
    log "strings" # and comments
    ! echo "abc 123"; echo another # bash gets comments too
 
+   label:     (unless -flag)
+      log "now with labels"
+      some_command [-option]      (-option if ___)
+      select */t:SWITCH %x:+[GATE] */t:SWITCH %d
+
 .. code-block:: sby
     :caption: example.sby
 
