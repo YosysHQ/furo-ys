@@ -21,19 +21,9 @@
 </noscript>
 
 <div id="search-results"></div>
-{%- if theme_brand_main_search %}
 <div>
-  <p>Can't find what you're looking for?</p>
-  <form class="search-container" method="get" action="{{ theme_brand_main_search }}" role="search">
-    <input type="hidden" name="q">
-    <input type="hidden" name="check_keywords">
-    <input type="hidden" name="area">
-      <span class="sd-d-grid">
-        <input class="sd-sphinx-override sd-btn sd-text-wrap sd-btn-primary reference external" type="submit" value="Search all YosysHQ docs">
-      </span>
-    </form>
+  <p>Can't find what you're looking for? Try "Search docs" in the bottom right flyout menu, and enable the "Include subprojects" filter.</p>
 </div>
-{%- endif %}
 {% endblock %}
 
 {% block scripts -%}
